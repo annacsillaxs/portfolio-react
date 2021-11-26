@@ -78,7 +78,23 @@ const Header = ({ toggleTheme, theme }) => {
 			<section className="about flow">
 				<h3 className="ff-sans-cond fs-400 fw-700 text-lighter">About me</h3>
 				<p>
-					Hi, I'm Anna. I've learnt the front end basics (HTML, CSS and JS) from Brad Traversy, Jonas Schmedtmann, Maximilian Schwarzmüller and Kevin Powell. React from{" "}
+					Hi, I'm Anna. I've learnt the front end basics (HTML, CSS and JS) from{" "}
+					<a href="https://www.traversymedia.com/" target="_blank" rel="noopener noreferrer">
+						Brad Traversy
+					</a>
+					,{" "}
+					<a href="https://codingheroes.io/" target="_blank" rel="noopener noreferrer">
+						Jonas Schmedtmann
+					</a>
+					,
+					<a href="https://academind.com/" target="_blank" rel="noopener noreferrer">
+						Maximilian Schwarzmüller
+					</a>
+					and{" "}
+					<a href="https://www.kevinpowell.co/" target="_blank" rel="noopener noreferrer">
+						Kevin Powell
+					</a>
+					. React from{" "}
 					<a href="https://www.johnsmilga.com/" target="_blank" rel="noopener noreferrer">
 						John Smilga
 					</a>
