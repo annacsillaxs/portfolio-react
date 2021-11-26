@@ -6,6 +6,7 @@
 
 :root {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 
 	/* colors */
 	--clr-dark: 230 35% 7%;
