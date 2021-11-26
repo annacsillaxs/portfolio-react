@@ -3,8 +3,8 @@ import Button from "./ToggleButton";
 
 const Nav = ({ toggleTheme, theme }) => {
 	return (
-		<nav id="nav" className="nav flex">
-			<div className="nav-box">
+		<nav id="nav" className="nav ">
+			<div className="nav-box flex">
 				<ul className="nav-list flex ff-sans-cond uppercase fs-300 fw-700 letter-spacing-4">
 					<li className="nav-item">
 						<a href="#home">Home</a>
