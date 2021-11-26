@@ -40,7 +40,7 @@ function App() {
 	useEffect(() => {
 		document.documentElement.className = theme;
 		setProjects(data);
-	}, [theme, data]);
+	}, [theme]);
 
 	return (
 		<>

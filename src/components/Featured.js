@@ -16,7 +16,7 @@ const Featured = ({ projects }) => {
 		if (index > featuredProjects.length - 1) {
 			setIndex(0);
 		}
-	}, [index, projects]);
+	}, [index, projects, featuredProjects.length]);
 
 	return (
 		// <section className="featured cards-container grid">
@@ -39,9 +39,7 @@ const Featured = ({ projects }) => {
 				if (projectIndex === index) {
 					position = "activeSlide";
 				}
-				// if (projectIndex === index - 1 || (index === 0 && projectIndex === featuredProjects.length - 1)) {
-				// 	position = "leftSlide";
-				// }
+
 				if (projectIndex === index - 1 || (index === 0 && projectIndex === featuredProjects.length - 1)) {
 					position = "leftSlide";
 				}

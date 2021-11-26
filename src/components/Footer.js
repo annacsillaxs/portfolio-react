@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer class="footer center container" id="footer">
+		<footer className="footer center container" id="footer">
 			<p className="ff-sans-normal fs-200 fw-200 ">
 				Design ideas from{" "}
 				<a href="https://www.frontendmentor.io/challenges" target="_blank" rel="noopener noreferrer">

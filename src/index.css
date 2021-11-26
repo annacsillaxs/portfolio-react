@@ -17,7 +17,7 @@
 	--btn-grey: hsl(230, 22%, 74%);
 
 	/* font-sizes */
-	--fs-900: clamp(5rem, 7vw + 1rem, 9.375rem);
+	/* --fs-900: clamp(5rem, 7vw + 1rem, 9.375rem); */
 	--fs-800: 3.5rem;
 	--fs-700: 1.5rem;
 	--fs-600: 1.2rem;
@@ -35,14 +35,12 @@
 
 .light-theme {
 	--clr-primary: hsl(191, 51%, 61%);
-	--clr-secondary: hsl(220, 51%, 61%);
-	--clr-tertiary: hsl(161, 51%, 61%);
 	--clr-bg-nav: hsl(192, 9%, 90%);
 	--clr-bg-body: hsl(0, 0%, 100%);
 	--clr-bg-top: hsl(225, 100%, 98%);
 	--clr-bg-container: hsl(240, 14%, 99%);
 	--clr-bg-card: hsl(0, 0%, 100%);
-	--clr-bg-card--hover: hsl(234, 33%, 94%);
+	--clr-bg-bar: hsl(234, 33%, 94%);
 	--clr-bg-img: hsl(220, 11%, 95%);
 	--clr-bg-img--hover: hsl(230, 31%, 89%);
 	--clr-text-grey: hsl(228, 12%, 44%);
@@ -51,16 +49,13 @@
 }
 
 .dark-theme {
-	--clr-primary: hsl(191, 51%, 61%);
 	--clr-primary: hsl(220, 51%, 61%);
-	--clr-secondary: hsl(220, 51%, 61%);
-	--clr-tertiary: hsl(161, 51%, 61%);
 	--clr-bg-nav: hsl(219, 89%, 15%);
 	--clr-bg-body: hsl(230, 17%, 14%);
 	--clr-bg-top: hsl(232, 19%, 15%);
 	--clr-bg-container: hsl(232, 19%, 15%);
 	--clr-bg-card: hsl(230, 27%, 27%);
-	--clr-bg-card--hover: hsl(230, 30%, 32%);
+	--clr-bg-bar: hsl(230, 30%, 32%);
 	--clr-bg-img: hsl(230, 27%, 27%);
 	--clr-bg-img--hover: hsl(230, 30%, 32%);
 	--clr-text-grey: hsl(228, 34%, 66%);
@@ -136,7 +131,7 @@ body {
 	background-color: var(--clr-bg-body);
 	line-height: 1.5;
 	min-height: 100vh;
-
+	margin-inline: auto;
 	display: grid;
 	place-content: center center;
 	overflow-x: hidden;
@@ -172,18 +167,6 @@ ul {
 
 li {
 	list-style: none;
-}
-
-/* remove animations for people who've turned them off */
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::after,
-	*::before {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
 }
 
 /* ======================================================================================== */
@@ -371,33 +354,99 @@ li {
 /* ======================================================================================== */
 .nav {
 	position: sticky;
-	width: 100vw;
 	top: 0;
-	background-color: var(--clr-bg-card--hover);
+	width: 100vw;
+	background-color: var(--clr-bg-bar);
 	z-index: 500;
 	align-items: center;
 	justify-content: space-between;
 	padding-inline: min(5vw, 3em);
-	/* margin-block-end: 2em; */
 }
 
 .nav-item a {
 	color: var(--clr-primary);
 }
 
+/* ==================== */
+/* TOGGLE-BTN */
+/* ==================== */
+
+.btn {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 3.2rem;
+	height: 1.6rem;
+	background-color: var(--clr-primary);
+	border-radius: 7px;
+	cursor: pointer;
+	position: relative;
+	border: none;
+}
+
+.btn.dark:hover {
+	background-color: var(--clr-bg-card);
+}
+
+.btn.dark:hover .circle {
+	background-color: var(--clr-primary);
+}
+
+.btn.dark:hover .react-icons--sun {
+	color: var(--clr-primary);
+}
+
+.circle {
+	height: 1.2rem;
+	width: 1.4rem;
+	border-radius: 50%;
+	border-radius: 7px;
+	background-color: var(--clr-bg-top);
+	position: absolute;
+	top: 0.2rem;
+	left: 1.6rem;
+	transition: transform 0.2s ease-in;
+}
+
+.circle.dark {
+	transform: translateX(-1.4rem);
+}
+.btn.light {
+	background-color: var(--clr-border);
+}
+.btn.light:hover {
+	background-color: var(--clr-primary);
+}
+.btn.light:hover .react-icons--moon {
+	color: var(--clr-border);
+}
+
+.react-icons--moon {
+	font-size: 1rem;
+	color: var(--clr-primary);
+}
+.react-icons--sun {
+	font-size: 1rem;
+	color: var(--clr-dark);
+}
+.react-icons.github.dark {
+	color: var(--clr-border);
+}
+
 /* ======================================================================================== */
 /* LAYOUT */
 /* ======================================================================================== */
 
+/* App */
 .app {
 	grid-template-areas:
 		"header"
 		"featured"
 		"projects";
-	/* --gap: 1em; */
 	padding-block-start: 4em;
 }
 
+/* Header */
 .header {
 	grid-area: header;
 	grid-template-areas:
@@ -412,17 +461,13 @@ li {
 
 .icons-box {
 	grid-area: icons-box;
-	grid-template-areas: "about social contact";
 	grid-template-areas: "about" "social" "contact";
-
-	/* border-bottom: 1px solid var(--clr-border); */
 	--gap: 1em;
 }
 
 .icons-box > * {
 	--gap: 1.2em;
 }
-
 .about-box {
 	grid-area: about;
 	flex-direction: column;
@@ -430,7 +475,6 @@ li {
 	justify-content: center;
 	--gap: 0;
 }
-
 .social-box {
 	grid-area: social;
 	align-items: center;
@@ -439,7 +483,6 @@ li {
 	border-bottom: 1px solid var(--clr-border);
 	padding: 1em;
 }
-
 .contact-box {
 	grid-area: contact;
 	align-items: center;
@@ -455,21 +498,28 @@ li {
 	margin-top: 1.5em;
 }
 
-.title-box {
-	margin: 2em auto;
-}
-
-.title-box--sm {
-	margin: 1.5em auto;
-}
-
+/* Featured */
 .featured {
 	grid-area: featured;
+	grid-template-areas:
+		". title  ."
+		". arrows  ."
+		". activeSlide .";
+	grid-template-columns: 10% 80% 10%;
+	--gap: 0.5em;
+	justify-content: center;
+	padding-block-start: 4em;
 }
 
+/* Projects */
 .projects {
 	grid-area: projects;
 	padding-block-start: 4em;
+}
+
+.cards-container {
+	grid-template-columns: 1fr;
+	--gap: 1em;
 }
 
 @media (min-width: 35em) {
@@ -485,7 +535,6 @@ li {
 
 	.icons-box {
 		grid-template-areas: "about social contact";
-
 		border-bottom: 1px solid var(--clr-border);
 	}
 
@@ -515,6 +564,10 @@ li {
 	.title-box--sm {
 		margin: 1em auto;
 	}
+
+	.cards-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (min-width: 45em) {
@@ -523,16 +576,24 @@ li {
 			"img icons-box icons-box"
 			"img about skills";
 		grid-template-columns: 1.5fr 3fr 3fr;
-		/* --gap: 2rem; */
 	}
 
 	.icons-box {
 		white-space: nowrap;
 	}
 
+	.featured {
+		grid-template-columns: 25% 45% 25%;
+	}
+
 	.title-box {
 		margin: 2em auto;
 	}
+
+	.cards-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
 	.title-box--sm {
 		margin: 1em auto;
 	}
@@ -622,8 +683,7 @@ li {
 .progress-bar-bg {
 	width: 70%;
 	height: 5px;
-	background: hsl(190, 35%, 84%);
-	background: var(--clr-bg-card--hover);
+	background: var(--clr-bg-bar);
 }
 
 .progress-bar {
@@ -633,25 +693,17 @@ li {
 
 /* ===================================== FEATURED ===================================== */
 
-.featured {
-	grid-template-areas:
-		". title  ."
-		". arrows  ."
-		". activeSlide .";
-	grid-template-columns: 10% 80% 10%;
-	--gap: 0.5em;
-	justify-content: center;
-	padding-block-start: 4em;
-}
-
 .title-box {
 	grid-area: title;
+	margin: 2em auto;
 }
+
 .arrows-box {
 	grid-area: arrows;
 	text-align: center;
 	margin-block-end: 0.5em;
 }
+
 .card--featured {
 	grid-area: activeSlide;
 	border-radius: 0.5em;
@@ -685,10 +737,6 @@ li {
 }
 
 @media (min-width: 45em) {
-	.featured {
-		grid-template-columns: 25% 45% 25%;
-	}
-
 	.card--featured {
 		transform: translateX(0) scale(0);
 		transition: transform 0.3s linear, opacity 0.3s linear 0.2s;
@@ -709,53 +757,11 @@ li {
 	}
 }
 
-/* ==================================== CARDS-CONTAINER ==================================== */
-.cards-container {
-	grid-template-columns: 1fr;
-	--gap: 1em;
-}
-
-@media (min-width: 35em) {
-	.cards-container {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (min-width: 45em) {
-	.cards-container {
-		grid-template-columns: repeat(3, 1fr);
-	}
-}
-
-/* ======================================== CARD ======================================== */
-.card {
-	background-color: var(--clr-bg-card);
-	border-radius: 0.5em;
-	overflow: hidden;
-}
-
-.img-container {
-	padding: 1em;
-	background-color: var(--clr-bg-img);
-	transform: scale(1);
-	transition: transform 0.3s ease-in-out;
-}
-
-.img-container:hover {
-	transform: scale(1.08);
-}
-
-.content-container {
-	padding: 1em;
-}
-
-.tags-container {
-	justify-content: space-between;
-	align-items: center;
-	margin-block: 0.7em;
-}
-
 /* ===================================== FILTER ===================================== */
+.title-box--sm {
+	margin: 1.5em auto;
+}
+
 .filter-container {
 	justify-content: center;
 	flex-wrap: wrap;
@@ -793,77 +799,32 @@ li {
 	transform: translateY(5%);
 }
 
-/* ===================================== TOGGLE-BTN ===================================== */
-
-.btn {
-	width: 3.2rem;
-	height: 1.4rem;
-	background-color: var(--clr-primary);
-	border-radius: 7px;
-	cursor: pointer;
-	position: relative;
-	/* margin: 0 0 0 0.5rem; */
-	border: none;
-	/* position: absolute; */
-	/* right: 1em;
-	top: 1em; */
-}
-
-.btn.dark:hover {
+/* ======================================== CARD / PROJECT ======================================== */
+.card {
 	background-color: var(--clr-bg-card);
+	border-radius: 0.5em;
+	overflow: hidden;
 }
 
-.btn.dark:hover .circle {
-	background-color: var(--clr-primary);
+.img-container {
+	padding: 1em;
+	background-color: var(--clr-bg-img);
+	transform: scale(1);
+	transition: transform 0.3s ease-in-out;
 }
 
-.btn.dark:hover .react-icons--sun {
-	color: var(--clr-primary);
+.img-container:hover {
+	transform: scale(1.08);
 }
 
-.circle {
-	height: 1.1rem;
-	width: 1.4rem;
-	border-radius: 50%;
-	border-radius: 7px;
-	background-color: var(--clr-bg-top);
-	margin: 0.15rem;
-	position: absolute;
-	top: 0;
-	left: 1.5rem;
-	transition: transform 0.2s ease-in;
+.content-container {
+	padding: 1em;
 }
 
-.circle.dark {
-	transform: translateX(-1.5rem);
-}
-
-.btn.light {
-	background-color: var(--clr-border);
-}
-
-.btn.light:hover {
-	background-color: var(--clr-primary);
-}
-
-.btn.light:hover .react-icons--moon {
-	color: var(--clr-border);
-}
-
-.react-icons--moon {
-	color: var(--clr-primary);
-	margin-left: -2px;
-	margin-left: 0.05em;
-}
-
-.react-icons--sun {
-	color: var(--clr-dark);
-	margin-left: 5px;
-	margin-left: 0.3em;
-}
-
-.react-icons.github.dark {
-	color: var(--clr-border);
+.tags-container {
+	justify-content: space-between;
+	align-items: center;
+	margin-block: 0.7em;
 }
 
 /* ===================================== FOOTER ===================================== */
