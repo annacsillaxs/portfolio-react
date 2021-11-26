@@ -355,12 +355,19 @@ li {
 .nav {
 	position: fixed;
 	top: 0;
-	width: 100vw;
+	right: 0;
+	left: 0;
 	background-color: var(--clr-bg-bar);
 	z-index: 500;
+}
+
+.nav-box {
 	align-items: center;
 	justify-content: space-between;
-	padding-inline: min(5vw, 3em);
+	padding-inline: 1em;
+	margin-inline: auto;
+	max-width: 80rem;
+	width: 95%;
 }
 
 .nav-item a {
