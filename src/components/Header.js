@@ -65,7 +65,7 @@ const Header = ({ toggleTheme, theme }) => {
 						<HiMail className="react-icons" />
 						<span className="tooltip-text ff-sans-cond fw-700 fs-200">Email Me</span>
 					</a>
-					<a href="tel:0036 1 1234 5678" className="tooltip">
+					<a href="tel:0044 7456 334 777" className="tooltip">
 						<HiPhone className="react-icons" />
 						<span className="tooltip-text ff-sans-cond fw-700 fs-200">Call Me</span>
 					</a>
