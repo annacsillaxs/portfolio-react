@@ -69,7 +69,7 @@ const Header = ({ toggleTheme, theme }) => {
 						<HiPhone className="react-icons" />
 						<span className="tooltip-text ff-sans-cond fw-700 fs-200">Call Me</span>
 					</a>
-					<a href="/Anna_Csilla_Seregi_CV.pdf" target="_blank" rel="noopener noreferrer" className="tooltip">
+					<a href="/Anna_Seregi_CV.pdf" target="_blank" rel="noopener noreferrer" className="tooltip">
 						<MdOutlineContactPage className="react-icons" />
 						<span className="tooltip-text ff-sans-cond fw-700 fs-200">My CV</span>
 					</a>
