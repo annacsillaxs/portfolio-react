@@ -7,24 +7,28 @@ import { MdOutlineContactPage } from "react-icons/md";
 const Header = ({ toggleTheme, theme }) => {
   const skills = [
     {
-      name: "html",
-      level: "95",
-    },
-    {
-      name: "css/sass",
-      level: "95",
-    },
-    {
-      name: "js6",
+      name: "Angular",
       level: "90",
     },
     {
-      name: "react js",
+      name: "React",
+      level: "80",
+    },
+    {
+      name: "Figma",
+      level: "70",
+    },
+    {
+      name: "Typescript",
+      level: "90",
+    },
+    {
+      name: "Python / FastAPI",
       level: "60",
     },
     {
-      name: "mern",
-      level: "25",
+      name: "SQL",
+      level: "70",
     },
   ];
 
@@ -126,16 +130,6 @@ const Header = ({ toggleTheme, theme }) => {
           Hi, I'm Anna. Software Engineer with 4+ years of experience building
           and maintaining large-scale fintech applications in a complex
           multi-tenant environment.
-          <br />
-          Strong frontend background in Angular and TypeScript, with growing
-          full-stack expertise in Python (FastAPI), REST APIs, and backend
-          service development. Experienced delivering production features
-          end-to-end across UI, backend, authentication, payments, and
-          configuration-driven systems.
-          <br />
-          Known for quickly ramping up in new areas, taking ownership of
-          features, and working across multiple teams and client configurations
-          within a shared platform.
         </p>
         <p>
           Please check out my projects below and don't hesitate to contact me. I
