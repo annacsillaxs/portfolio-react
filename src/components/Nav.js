@@ -10,10 +10,13 @@ const Nav = ({ toggleTheme, theme }) => {
 						<a href="#home">Home</a>
 					</li>
 					<li className="nav-item">
+						<a href="#experience">Experience</a>
+					</li>
+					<li className="nav-item">
 						<a href="#featured">Featured Projects</a>
 					</li>
 					<li className="nav-item">
-						<a href="#projects">Other Projects</a>
+						<a href="#projects">Earlier Projects</a>
 					</li>
 				</ul>
 				<Button toggleTheme={toggleTheme} theme={theme} />

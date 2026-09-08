@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
+import Experience from "./components/Experience";
 import Cards from "./components/Cards";
 import Featured from "./components/Featured";
 import Footer from "./components/Footer";
 import data from "./data";
-// import paginate from "./utils";
 
 let allCategories = [];
 
@@ -17,7 +17,6 @@ function App() {
 	const [theme, setTheme] = useState("light-theme");
 	const [projects, setProjects] = useState(data);
 	const [filteredProjects, setFilteredProjects] = useState(data);
-	const [categories, setCategories] = useState(filteredCategories);
 
 	const toggleTheme = () => {
 		if (theme === "light-theme") {
@@ -25,7 +24,6 @@ function App() {
 		} else {
 			setTheme("light-theme");
 		}
-		console.log("clicked");
 	};
 
 	const filterProjects = (category) => {
@@ -47,8 +45,9 @@ function App() {
 			<Nav toggleTheme={toggleTheme} theme={theme} />
 			<div className="app container grid" id="home">
 				<Header toggleTheme={toggleTheme} theme={theme} />
+				<Experience />
 				<Featured projects={projects} />
-				<Cards projects={filteredProjects} filterProjects={filterProjects} categories={categories} />
+				<Cards projects={filteredProjects} filterProjects={filterProjects} categories={filteredCategories} totalProjects={data.length} />
 			</div>
 			<Footer />
 		</>

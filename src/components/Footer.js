@@ -15,7 +15,7 @@ const Footer = () => {
 				</a>
 			</p>
 			<p className="ff-sans-normal fs-200 fw-400">
-				Coded by <a href="#home">Anna Seregi</a> &#64; 2021
+				Coded by <a href="#home">Anna Seregi</a> &#64; {new Date().getFullYear()}
 			</p>
 		</footer>
 	);

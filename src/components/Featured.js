@@ -19,11 +19,11 @@ const Featured = ({ projects }) => {
 	}, [index, projects, featuredProjects.length]);
 
 	return (
-		// <section className="featured cards-container grid">
 		<section id="featured" className="featured grid">
 			<div className="title-box">
-				<h2 className="center fs-600 ff-sans-cond fw-700">My Featured Projects</h2>
+				<h2 className="center fs-600 ff-sans-cond fw-700">Featured Personal Projects</h2>
 				<div className="underline center"></div>
+				<p className="center projects-intro">Side projects I built in my own time to explore new ideas and techniques.</p>
 			</div>
 
 			<div className="arrows-box">

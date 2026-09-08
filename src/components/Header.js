@@ -5,30 +5,22 @@ import { BiMap } from "react-icons/bi";
 import { MdOutlineContactPage } from "react-icons/md";
 
 const Header = ({ toggleTheme, theme }) => {
-  const skills = [
+  const skillGroups = [
     {
-      name: "Angular",
-      level: "90",
+      group: "Frontend",
+      items: ["React", "Angular", "TypeScript", "JavaScript", "Tailwind"],
     },
     {
-      name: "React",
-      level: "80",
+      group: "Backend",
+      items: ["Python", "FastAPI", "REST APIs"],
     },
     {
-      name: "Figma",
-      level: "70",
+      group: "Data",
+      items: ["PostgreSQL"],
     },
     {
-      name: "Typescript",
-      level: "90",
-    },
-    {
-      name: "Python / FastAPI",
-      level: "60",
-    },
-    {
-      name: "SQL",
-      level: "70",
+      group: "Tools & Testing",
+      items: ["Git", "Docker", "CI/CD", "Pytest", "Figma"],
     },
   ];
 
@@ -44,8 +36,13 @@ const Header = ({ toggleTheme, theme }) => {
             Anna Csilla Kun-Seregi
           </h1>
           <h3 className="ff-sans-cond fs-400 text-lighter">
-            Front End Developer
+            Software Engineer &middot; Full Stack
           </h3>
+          <p className="tagline">
+            Fintech &bull; Angular &bull; React &bull;{" "}
+            <span className="nowrap">Python / FastAPI</span> &bull;{" "}
+            <span className="nowrap">Multi-tenant platforms</span>
+          </p>
           <p>
             <BiMap className="react-icons--map" />
             London, UK
@@ -127,36 +124,50 @@ const Header = ({ toggleTheme, theme }) => {
       <section className="about flow">
         <h3 className="ff-sans-cond fs-400 fw-700 text-lighter">About me</h3>
         <p>
-          Hi, I'm Anna. Software Engineer with 4+ years of experience building
-          and maintaining large-scale fintech applications in a complex
+          Hi, I'm Anna &mdash; a Software Engineer with 4+ years building and
+          maintaining large-scale fintech applications in a complex
           multi-tenant environment.
         </p>
         <p>
-          Please check out my projects below and don't hesitate to contact me. I
-          am open to work.
+          Strong frontend background in Angular, React and TypeScript, with
+          growing full-stack expertise in Python (FastAPI), REST APIs and
+          backend service development. I've delivered production features
+          end-to-end across UI, backend, authentication, payments and
+          configuration-driven systems.
+        </p>
+        <p>
+          Have a look at my work below and don't hesitate to get in touch.
         </p>
       </section>
 
       <section className="skills flow">
         <div className="skills-box flow">
-          <h3 className="ff-sans-cond fs-400 fw-700 text-lighter">Skills</h3>
-          <div className="progress-container grid">
-            {skills.map((skill, index) => {
+          <h3 className="ff-sans-cond fs-400 fw-700 text-lighter">
+            Technical Skills
+          </h3>
+          <div className="skill-groups grid">
+            {skillGroups.map((skillGroup) => {
               return (
-                <div className="progress flex" key={index}>
-                  <p className="uppercase fw-400">{skill.name}</p>
-                  <div className="progress-bar-bg">
-                    <div
-                      className="progress-bar"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
+                <div className="skill-group" key={skillGroup.group}>
+                  <h4 className="ff-sans-cond uppercase fs-300 fw-700 letter-spacing-4 text-lighter">
+                    {skillGroup.group}
+                  </h4>
+                  <ul className="skill-list flex">
+                    {skillGroup.items.map((item) => {
+                      return (
+                        <li className="skill-tag fs-200 fw-400" key={item}>
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
+
     </header>
   );
 };
