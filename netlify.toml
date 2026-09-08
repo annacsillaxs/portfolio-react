@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # Pinned so builds are reproducible. Node >=17 requires the
+  # --openssl-legacy-provider flag set in the build script, because
+  # webpack 4 (react-scripts 4) hashes with md4.
+  NODE_VERSION = "22"
