@@ -8,7 +8,17 @@ const Header = ({ toggleTheme, theme }) => {
   const skillGroups = [
     {
       group: "Frontend",
-      items: ["React", "Angular", "TypeScript", "JavaScript", "Tailwind"],
+      items: [
+        "React",
+        "Angular",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind",
+        "Ag-Grid",
+        "HTML",
+        "CSS",
+        "SASS",
+      ],
     },
     {
       group: "Backend",
@@ -125,8 +135,8 @@ const Header = ({ toggleTheme, theme }) => {
         <h3 className="ff-sans-cond fs-400 fw-700 text-lighter">About me</h3>
         <p>
           Hi, I'm Anna &mdash; a Software Engineer with 4+ years building and
-          maintaining large-scale fintech applications in a complex
-          multi-tenant environment.
+          maintaining large-scale fintech applications in a complex multi-tenant
+          environment.
         </p>
         <p>
           Strong frontend background in Angular, React and TypeScript, with
@@ -135,9 +145,7 @@ const Header = ({ toggleTheme, theme }) => {
           end-to-end across UI, backend, authentication, payments and
           configuration-driven systems.
         </p>
-        <p>
-          Have a look at my work below and don't hesitate to get in touch.
-        </p>
+        <p>Have a look at my work below and don't hesitate to get in touch.</p>
       </section>
 
       <section className="skills flow">
@@ -167,7 +175,6 @@ const Header = ({ toggleTheme, theme }) => {
           </div>
         </div>
       </section>
-
     </header>
   );
 };

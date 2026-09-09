@@ -461,6 +461,7 @@ li {
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   --gap: 1rem;
   padding-inline: 1em;
+  margin-top: 1rem;
   position: relative;
 }
 
@@ -550,6 +551,7 @@ li {
       "skills skills .";
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
     --gap: 1.5rem;
+    margin-top: 0;
   }
 
   .icons-box {
@@ -600,6 +602,7 @@ li {
       "img icons-box icons-box"
       "img about skills";
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 3fr) minmax(0, 3fr);
+    margin-top: 0;
   }
 
   .icons-box {
