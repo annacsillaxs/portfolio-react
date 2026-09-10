@@ -119,7 +119,7 @@ const Header = ({ toggleTheme, theme }) => {
             </span>
           </a>
           <a
-            href="/Anna_Kun-Seregi_CV.pdf"
+            href="/Anna_Kun_Seregi_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="tooltip"
