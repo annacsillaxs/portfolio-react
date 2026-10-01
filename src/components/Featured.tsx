@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { BiGitRepoForked } from "react-icons/bi";
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
+import type { Project } from "../types";
 
-const Featured = ({ projects }) => {
+interface FeaturedProps {
+	projects: Project[];
+}
+
+const Featured = ({ projects }: FeaturedProps) => {
 	const [index, setIndex] = useState(0);
 
 	const featuredProjects = projects.filter((detail) => detail.featured);
 
-	useEffect(() => {
-		const prevIndex = featuredProjects.length - 1;
-
-		if (index < 0) {
-			setIndex(prevIndex);
-		}
-		if (index > featuredProjects.length - 1) {
-			setIndex(0);
-		}
-	}, [index, projects, featuredProjects.length]);
+	const count = featuredProjects.length;
+	const showPrevious = () => setIndex((current) => (current - 1 + count) % count);
+	const showNext = () => setIndex((current) => (current + 1) % count);
 
 	return (
 		<section id="featured" className="featured grid">
@@ -27,8 +25,8 @@ const Featured = ({ projects }) => {
 			</div>
 
 			<div className="arrows-box">
-				<MdOutlineArrowBackIos className="react-icons carousel-icon--left" onClick={() => setIndex(index - 1)} />
-				<MdOutlineArrowForwardIos className="react-icons carousel-icon--right" onClick={() => setIndex(index + 1)} />
+				<MdOutlineArrowBackIos className="react-icons carousel-icon--left" onClick={showPrevious} />
+				<MdOutlineArrowForwardIos className="react-icons carousel-icon--right" onClick={showNext} />
 			</div>
 
 			{featuredProjects.map((project, projectIndex) => {

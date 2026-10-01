@@ -1,6 +1,10 @@
-import React from "react";
 
-const Filter = ({ filterProjects, categories }) => {
+interface FilterProps {
+	filterProjects: (category: string) => void;
+	categories: string[];
+}
+
+const Filter = ({ filterProjects, categories }: FilterProps) => {
 	return (
 		<div className="flex filter-container">
 			<h4 className="fs-500 uppercase ff-sans-cond text-lighter">Filter by language</h4>

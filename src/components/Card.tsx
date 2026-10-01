@@ -1,11 +1,16 @@
-import React from "react";
 import { BiGitRepoForked } from "react-icons/bi";
 
-const Card = ({ projects }) => {
+import type { Project } from "../types";
+
+interface CardProps {
+	projects: Project[];
+}
+
+const Card = ({ projects }: CardProps) => {
 	return (
 		<>
-			{projects.map((projects) => {
-				const { id, link, source, type, img, title, tags, repo, desc, links, href } = projects;
+			{projects.map((project) => {
+				const { id, link, source, type, img, title, tags, repo, desc, links, href } = project;
 
 				return (
 					<article className="card" key={id}>
@@ -40,11 +45,11 @@ const Card = ({ projects }) => {
 								? links.map((link, index) => {
 										return (
 											<a href={link} target="_blank" rel="noopener noreferrer" key={index} className="fs-200 fw-400 text-lighter">
-												{href[index]}
+												{href?.[index]}
 											</a>
 										);
 								  })
-								: ""}
+								: null}
 						</div>
 					</article>
 				);

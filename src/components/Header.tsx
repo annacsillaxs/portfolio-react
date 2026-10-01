@@ -1,10 +1,14 @@
-import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiMail, HiPhone } from "react-icons/hi";
 import { BiMap } from "react-icons/bi";
 import { MdOutlineContactPage } from "react-icons/md";
+import type { Theme } from "../types";
 
-const Header = ({ toggleTheme, theme }) => {
+interface HeaderProps {
+  theme: Theme;
+}
+
+const Header = ({ theme }: HeaderProps) => {
   const skillGroups = [
     {
       group: "Frontend",
@@ -12,25 +16,33 @@ const Header = ({ toggleTheme, theme }) => {
         "React",
         "Angular",
         "TypeScript",
-        "JavaScript",
-        "Tailwind",
-        "Ag-Grid",
-        "HTML",
-        "CSS",
-        "SASS",
+        "RxJS",
+        "Tailwind CSS",
+        "Storybook",
+        "AG Grid",
+        "Angular Material",
+        "Figma",
       ],
     },
     {
       group: "Backend",
-      items: ["Python", "FastAPI", "REST APIs"],
+      items: ["Python", "FastAPI", "REST APIs", "Pydantic"],
     },
     {
       group: "Data",
-      items: ["PostgreSQL"],
+      items: ["PostgreSQL", "SQL"],
     },
     {
-      group: "Tools & Testing",
-      items: ["Git", "Docker", "CI/CD", "Pytest", "Figma"],
+      group: "Architecture",
+      items: ["Monorepos", "Multi-tenant platforms", "RBAC", "API integration"],
+    },
+    {
+      group: "Tools & Infrastructure",
+      items: ["Git", "Docker", "CI/CD", "OpenTelemetry"],
+    },
+    {
+      group: "Testing",
+      items: ["Pytest", "Unit testing", "Integration testing"],
     },
   ];
 
@@ -46,12 +58,11 @@ const Header = ({ toggleTheme, theme }) => {
             Anna Csilla Kun-Seregi
           </h1>
           <h3 className="ff-sans-cond fs-400 text-lighter">
-            Software Engineer &middot; Full Stack
+            Software Engineer
           </h3>
           <p className="tagline">
-            Fintech &bull; Angular &bull; React &bull;{" "}
-            <span className="nowrap">Python / FastAPI</span> &bull;{" "}
-            <span className="nowrap">Multi-tenant platforms</span>
+            Frontend-focused &bull; React &bull; TypeScript &bull; Angular
+            &bull; <span className="nowrap">Tailwind CSS</span> &bull; Fintech
           </p>
           <p>
             <BiMap className="react-icons--map" />
@@ -60,7 +71,7 @@ const Header = ({ toggleTheme, theme }) => {
         </div>
         <div className="social-box flex">
           <a
-            href="https://www.linkedin.com/in/anna-csilla-seregi-513003118/"
+            href="https://www.linkedin.com/in/anna-csilla-kun-seregi-513003118/"
             target="_blank"
             rel="noopener noreferrer"
             className="tooltip"
@@ -119,7 +130,7 @@ const Header = ({ toggleTheme, theme }) => {
             </span>
           </a>
           <a
-            href="/Anna_Kun_Seregi_CV.pdf"
+            href="/Anna_Kun-Seregi_Software_Engineer.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="tooltip"
@@ -134,16 +145,22 @@ const Header = ({ toggleTheme, theme }) => {
       <section className="about flow">
         <h3 className="ff-sans-cond fs-400 fw-700 text-lighter">About me</h3>
         <p>
-          Hi, I'm Anna &mdash; a Software Engineer with 4+ years building and
-          maintaining large-scale fintech applications in a complex multi-tenant
-          environment.
+          Hi, I'm Anna &mdash; a Software Engineer with 4+ years of experience
+          building production fintech applications within a large multi-tenant
+          platform.
         </p>
         <p>
-          Strong frontend background in Angular, React and TypeScript, with
-          growing full-stack expertise in Python (FastAPI), REST APIs and
-          backend service development. I've delivered production features
-          end-to-end across UI, backend, authentication, payments and
-          configuration-driven systems.
+          I have a strong frontend engineering background with TypeScript,
+          Angular and React, alongside hands-on experience integrating frontend
+          applications with Python/FastAPI backend services. I've built
+          production interfaces and end-to-end features involving
+          authentication, RBAC, payments, financial workflows and
+          configuration-driven multi-tenant platforms.
+        </p>
+        <p>
+          I'm comfortable across the full development lifecycle, from technical
+          design and implementation through testing, code review and production
+          delivery.
         </p>
         <p>Have a look at my work below and don't hesitate to get in touch.</p>
       </section>
