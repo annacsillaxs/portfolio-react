@@ -1,6 +1,12 @@
-import React from "react";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
-const Button = ({ toggleTheme, theme }) => {
+import type { Theme } from "../types";
+
+interface ToggleButtonProps {
+	toggleTheme: () => void;
+	theme: Theme;
+}
+
+const Button = ({ toggleTheme, theme }: ToggleButtonProps) => {
 	return (
 		<button type="button" className={`${theme === "light-theme" ? "light" : "dark"} btn `} onClick={toggleTheme}>
 			<MdOutlineDarkMode className="react-icons--moon" />

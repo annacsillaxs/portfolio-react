@@ -1,7 +1,13 @@
-import React from "react";
 import Button from "./ToggleButton";
 
-const Nav = ({ toggleTheme, theme }) => {
+import type { Theme } from "../types";
+
+interface NavProps {
+	toggleTheme: () => void;
+	theme: Theme;
+}
+
+const Nav = ({ toggleTheme, theme }: NavProps) => {
 	return (
 		<nav id="nav" className="nav ">
 			<div className="nav-box flex">

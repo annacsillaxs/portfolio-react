@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Anna Seregi — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live site: [annaseregi.me](https://annaseregi.me/)**
 
-## Available Scripts
+My personal portfolio: who I am, the professional work I've done as a frontend-focused Software Engineer in fintech, and the projects I built while teaching myself frontend development.
 
-In the project directory, you can run:
+Built with **React 19, TypeScript and Vite**, tested with **Vitest, React Testing Library and Playwright**, and deployed on **Netlify**.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Light and dark theme toggle
+- Professional experience presented as short case studies
+- Carousel of featured personal projects
+- Archive of earlier practice projects, filterable by language
+- Responsive layout built with plain CSS: custom properties, Grid and Flexbox
+- Meta and Open Graph tags so links to the site preview properly when shared
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tech stack
 
-### `npm test`
+| Area      | Tools                                                    |
+| --------- | -------------------------------------------------------- |
+| Framework | React 19, TypeScript                                     |
+| Build     | Vite                                                     |
+| Testing   | Vitest, React Testing Library, jest-dom, Playwright      |
+| Quality   | ESLint (typescript-eslint, react-hooks), strict `tsc`    |
+| Hosting   | Netlify                                                  |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started
 
-### `npm run build`
+Requires Node 22.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+npm run dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The dev server runs at http://localhost:5173.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Scripts
 
-### `npm run eject`
+| Command            | What it does                                               |
+| ------------------ | ---------------------------------------------------------- |
+| `npm run dev`      | Start the dev server                                       |
+| `npm run build`    | Type-check and build to `dist/`                            |
+| `npm run preview`  | Serve the production build locally                         |
+| `npm run lint`     | Lint with ESLint                                           |
+| `npm test`         | Run unit and component tests once                          |
+| `npm run test:watch` | Run unit and component tests in watch mode               |
+| `npm run test:e2e` | Build, serve and run the Playwright end-to-end test        |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Component tests** ([`src/App.test.tsx`](src/App.test.tsx)) use Vitest and React Testing Library. They check behaviour the way a user would experience it: the page renders its main sections, the theme toggle switches themes, the projects section opens and closes, and the language filter shows the right projects. Expected counts come from the project data, so the tests don't need updating when projects are added.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**End-to-end test** ([`e2e/home.spec.ts`](e2e/home.spec.ts)) uses Playwright against the production build, not the dev server. It checks that the page loads with the right title, heading and content, and that no errors are thrown in the browser.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Before the first end-to-end run, install the browser:
 
-## Learn More
+```bash
+npx playwright install chromium
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+├── e2e/                  Playwright end-to-end tests
+├── public/               Static files: images, CV, favicon, manifest
+├── src/
+│   ├── components/       Page sections (Header, Experience, Featured, …)
+│   ├── data.ts           Project data shown in the carousel and archive
+│   ├── types.ts          Shared types
+│   ├── App.tsx           Theme and filter state, page layout
+│   └── App.test.tsx      Component tests
+├── index.html            HTML entry, with meta and Open Graph tags
+├── netlify.toml          Netlify build settings
+└── vite.config.ts        Vite and Vitest config
+```
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Netlify builds the site with `npm run build` and publishes `dist/` (see [`netlify.toml`](netlify.toml)).
 
-### Analyzing the Bundle Size
+The canonical and Open Graph URLs in `index.html` need an absolute address. At build time they use `VITE_SITE_URL`, which defaults to the `URL` that Netlify provides, so nothing needs configuring on Netlify. Locally it falls back to `http://localhost:5173`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## History
 
-### Making a Progressive Web App
+I first built this site in 2021 with Create React App, while teaching myself frontend development. In 2026 I rebuilt it on Vite instead of patching it. The rebuild moved it from JavaScript to TypeScript and from React 17 to 19, and added automated tests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website: [annaseregi.me](https://annaseregi.me/)
+- LinkedIn: [Anna Csilla Kun-Seregi](https://www.linkedin.com/in/anna-csilla-kun-seregi-513003118)
+- Email: anna.seregi@gmail.com

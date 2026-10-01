@@ -6,27 +6,19 @@ import Cards from "./components/Cards";
 import Featured from "./components/Featured";
 import Footer from "./components/Footer";
 import data from "./data";
+import type { Theme } from "./types";
 
-let allCategories = [];
-
-data.map((category) => category.tags.map((cat) => allCategories.push(cat)));
-
-const filteredCategories = ["all", ...new Set(allCategories)];
+const filteredCategories = ["all", ...new Set(data.flatMap((project) => project.tags))];
 
 function App() {
-	const [theme, setTheme] = useState("light-theme");
-	const [projects, setProjects] = useState(data);
+	const [theme, setTheme] = useState<Theme>("light-theme");
 	const [filteredProjects, setFilteredProjects] = useState(data);
 
 	const toggleTheme = () => {
-		if (theme === "light-theme") {
-			setTheme("dark-theme");
-		} else {
-			setTheme("light-theme");
-		}
+		setTheme((current) => (current === "light-theme" ? "dark-theme" : "light-theme"));
 	};
 
-	const filterProjects = (category) => {
+	const filterProjects = (category: string) => {
 		if (category === "all") {
 			setFilteredProjects(data);
 			return;
@@ -37,16 +29,15 @@ function App() {
 
 	useEffect(() => {
 		document.documentElement.className = theme;
-		setProjects(data);
 	}, [theme]);
 
 	return (
 		<>
 			<Nav toggleTheme={toggleTheme} theme={theme} />
 			<div className="app container grid" id="home">
-				<Header toggleTheme={toggleTheme} theme={theme} />
+				<Header theme={theme} />
 				<Experience />
-				<Featured projects={projects} />
+				<Featured projects={data} />
 				<Cards projects={filteredProjects} filterProjects={filterProjects} categories={filteredCategories} totalProjects={data.length} />
 			</div>
 			<Footer />

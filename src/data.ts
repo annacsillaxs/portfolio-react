@@ -1,4 +1,6 @@
-const data = [
+import type { Project } from "./types";
+
+const data: Project[] = [
 	{
 		id: "fm-theme-switcher",
 		name: "fm-theme-switcher",

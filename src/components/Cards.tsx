@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import Filter from "./Filter";
+import type { Project } from "../types";
 
-const Cards = ({ projects, filterProjects, categories, totalProjects }) => {
+interface CardsProps {
+	projects: Project[];
+	filterProjects: (category: string) => void;
+	categories: string[];
+	totalProjects: number;
+}
+
+const Cards = ({ projects, filterProjects, categories, totalProjects }: CardsProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
