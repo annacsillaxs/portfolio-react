@@ -2,6 +2,21 @@ import type { Project } from "./types";
 
 const data: Project[] = [
 	{
+		id: "personal-finance-app",
+		name: "personal-finance-app",
+		featured: true,
+		title: "Personal Finance App",
+		link: "https://personalfinanceappbyanna.netlify.app/",
+		source: "./images/projects/finance.jpg",
+		type: "image/jpeg",
+		img: "./images/projects/finance.jpg",
+		tags: ["react"],
+		repo: "https://github.com/annacsillaxs/personal-finance-app",
+		desc: "Full-stack personal finance app built with Next.js 16, React 19, TypeScript and PostgreSQL (Drizzle ORM). Money is modelled as an append-only ledger in integer cents, with database constraints enforcing data integrity. Work in progress, based on a guru-level Frontend Mentor challenge.",
+		links: ["https://www.frontendmentor.io/challenges/personal-finance-app-JfjtZgyMt1"],
+		href: ["Frontend Mentor"],
+	},
+	{
 		id: "fm-theme-switcher",
 		name: "fm-theme-switcher",
 		title: "Social Media Dashboard",
